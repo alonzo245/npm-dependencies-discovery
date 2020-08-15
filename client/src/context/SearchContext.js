@@ -32,6 +32,7 @@ export const SearchProvider = ({ children }) => {
 
     } catch (e) {
       console.log(e);
+      dispatch({ type: "ERROR" });
     }
   }
 
