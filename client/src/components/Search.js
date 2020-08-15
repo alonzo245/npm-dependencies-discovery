@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import useDebouncedCallback from "use-debounce/lib/useDebouncedCallback";
-import { SearchContext } from "../context/state";
+import { SearchContext } from "../context/SearchContext";
 import LoadingSpinner from "../shared/LoadingSpinner/LoadingSpinner";
 
 export default () => {

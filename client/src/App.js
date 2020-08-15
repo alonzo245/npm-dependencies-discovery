@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "./components/Header";
-import { SearchProvider } from "./context/state";
+import { SearchProvider } from "./context/SearchContext";
 import Dependencies from "./components/Dependencies";
 
 export default () => {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { SearchContext } from "../context/state";
+import { SearchContext } from "../context/SearchContext";
 import DependenciesList from "./DependenciesList";
 
 export default () => {

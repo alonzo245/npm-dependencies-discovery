@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import axios from "axios";
-import SearchReducer from "./reducer";
+import SearchReducer from "./searchReducer";
 
 const initialState = {
   loading: false,
