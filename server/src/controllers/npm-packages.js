@@ -9,8 +9,8 @@ exports.getNpmPackageDependencies = async (req, res) => {
     return res.status(200).json({
       status: !data ? "failed" : "success",
       name: packageName,
-      dependencies: npmRegistryClient.dependencies || {},
-      devDependencies: npmRegistryClient.devDependencies || {},
+      dependencies: npmRegistryClient.dependencies,
+      devDependencies: npmRegistryClient.devDependencies,
     });
   } catch (e) {
     console.log(e);

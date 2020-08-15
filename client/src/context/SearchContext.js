@@ -16,20 +16,27 @@ export const SearchProvider = ({ children }) => {
   const [state, dispatch] = useReducer(SearchReducer, initialState);
 
   //Actions
-  async function searchPackage(packageName = '') {
+  async function searchPackage(packageName = "") {
     try {
       if (!packageName || packageName.trim().length === 0) {
-          console.log('RESET_SEARCH', packageName.trim().length);
+        console.log("RESET_SEARCH", packageName.trim().length);
         dispatch({ type: "RESET_SEARCH" });
         return;
       }
 
+      let dependencies = null;
       dispatch({ type: "LOADING" });
       const response = await axios.get(
         `//localhost:3001/api/v1/packages/${packageName}/dependencies`
       );
-      dispatch({ type: "DATA_FETCHED", payload: { data: response.data } });
 
+      if (response.data.status === "failed") {
+        dispatch({ type: "ERROR" });
+        return;
+      }
+
+      dependencies = response.data;
+      dispatch({ type: "DATA_FETCHED", payload: { data: dependencies } });
     } catch (e) {
       console.log(e);
       dispatch({ type: "ERROR" });
